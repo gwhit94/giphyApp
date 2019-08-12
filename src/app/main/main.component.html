@@ -1,0 +1,8 @@
+<div class="inputField">
+    <input id="searchField" type="text" placeholder="Search">
+</div>
+<br>
+<div class="outputField" *ngFor="let image of searchOutput">
+    <img [src]="image.images?.original.url">
+</div>
+<div>You have been on this page for: {{timer | async}} seconds</div>
