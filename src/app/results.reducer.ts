@@ -1,9 +1,11 @@
 import {createReducer, on} from '@ngrx/store';
 import {current, previous, clear} from './results.actions';
+import { stat } from 'fs';
 
 export interface State {
     query: string,
-    searchNum: number
+    searchNum: number,
+    queries?: Array<string>
 }
 
 export const initialState: State = {
@@ -14,7 +16,7 @@ export const initialState: State = {
 const _resultsReducer = createReducer(initialState,
     on(current, state => ({...state, searchNum: state.searchNum + 1})),
     on(previous, state => ({...state, searchNum: state.searchNum - 1})),
-    on(clear, state => ({...state, searchNum: 0})),
+    on(clear, state => ({...state, searchNum: 0, query: ""})),
 );
 
 export function resultsReducer(state, action){
