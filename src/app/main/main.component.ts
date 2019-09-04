@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
     const keyUps = fromEvent(searchField, 'keyup').pipe(
       map(e => e.target['value']),
       filter(text => text.length > 3),
-      debounceTime(3000),
+      debounceTime(1000),
       distinctUntilChanged()
     );
 
