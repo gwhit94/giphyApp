@@ -14,8 +14,8 @@ export const initialState: State = {
 };
 
 const _resultsReducer = createReducer(initialState,
-    on(current, state => ({...state, searchNum: state.searchNum + 1})),
-    on(previous, state => ({...state, searchNum: state.searchNum - 1})),
+    on(current, state => ({...state, searchNum: state.searchNum + 1, queries: [...state.queries, state.query]})),
+    on(previous, state => ({...state, searchNum: state.searchNum - 1, query: state.queries[state.searchNum]})),
     on(clear, state => ({...state, searchNum: 0, query: ""})),
 );
 

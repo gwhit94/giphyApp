@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
     );
 
     keyUps.subscribe(evt => 
-      this.apiService.apiSearch(evt).subscribe(res => this.searchOutput = res)
+      {this.apiService.apiSearch(evt).subscribe(res => this.searchOutput = res)}
     );
   }
 }
